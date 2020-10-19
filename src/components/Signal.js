@@ -11,7 +11,7 @@ const Signal = ({signal, resetInterval, currTime}) => {
     useEffect(() => {
         const intervalObj = setInterval(() => {
             const diff = Math.ceil(currTime.valueOf() / 1000 - syncTime.valueOf() / 1000)
-            setRatioTimeModulo(diff % resetInterval)
+            setRatioTimeModulo(diff % resetInterval + 1)
         }, 1000);
 
         return () => {
