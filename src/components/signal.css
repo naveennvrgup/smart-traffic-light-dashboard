@@ -1,0 +1,27 @@
+.bgred {
+    background: #ef9a9a;
+}
+
+.bggreen {
+    background: #C5E1A5;
+}
+
+.timer {
+    position: relative;
+}
+
+.time {
+    position: absolute;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.timeBar {
+    z-index: 0;
+    left: 5%;
+    top: 5%;
+    position: absolute;
+    height: 90%;
+}
