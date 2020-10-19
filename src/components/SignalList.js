@@ -27,6 +27,7 @@ const SignalList = () => {
                     <td>Lat</td>
                     <td>Lng</td>
                     <td>Timer</td>
+                    <td>No.Lights</td>
                     <td>Light Id</td>
                     <td>Direction</td>
                     <td>Mode</td>
