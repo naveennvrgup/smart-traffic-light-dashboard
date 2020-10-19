@@ -84,7 +84,7 @@ const Signal = ({signal, resetInterval, currTime}) => {
         {i === 0 ? main : null}
         <th width='10px'>{light.id}</th>
         <td>{light.direction}</td>
-        <td>{light.operationMode}</td>
+        <td className={light.operationMode === 'OverRide' ? 'bgblue' : null}>{light.operationMode}</td>
         <td className={light.signalState === 'Red' ? 'bgred' : 'bggreen'}>
             {light.signalState}
         </td>
