@@ -6,6 +6,7 @@ const SignalList = () => {
     const [signals, setSignals] = useState([]);
     const [resetInterval, setResetInterval] = useState(5);
     const [currTime, setCurTime] = useState(new Date());
+    const [loadingResetOverRide, setLoadingResetOverRide] = useState(false);
 
     const fetchReport = () => {
         axios.get('/maps/stateReporting/')
@@ -14,6 +15,18 @@ const SignalList = () => {
                 setResetInterval(response.data.resetInterval);
             }).catch(err => {
             console.log(err);
+        })
+    }
+
+    const revokeOverRide = () => {
+        setLoadingResetOverRide(true);
+        axios.get('/maps/revokeOverRide/')
+            .then(response => {
+                console.log(response);
+            }).catch(err => {
+            console.log(err);
+        }).finally(() => {
+            setLoadingResetOverRide(false);
         })
     }
 
@@ -45,7 +58,12 @@ const SignalList = () => {
                 <td>No. Lights</td>
                 <td>Light Id</td>
                 <td>Direction</td>
-                <td>Mode</td>
+                <td style={{cursor: 'pointer'}} onClick={revokeOverRide}>
+                    <span>Mode </span>
+                    {loadingResetOverRide ?
+                        <span className='spinner-border text-primary spinner-border-sm'></span> :
+                        <span className="text-danger">*</span>}
+                </td>
                 <td>Color</td>
             </tr>
             </thead>
