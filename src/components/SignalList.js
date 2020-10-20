@@ -2,10 +2,9 @@ import React, {Fragment, useEffect, useState} from 'react';
 import axios from '../axios';
 import Signal from "./Signal";
 
-const SignalList = () => {
+const SignalList = ({history}) => {
     const [signals, setSignals] = useState([]);
     const [resetInterval, setResetInterval] = useState(5);
-    const [currTime, setCurTime] = useState(new Date());
     const [loadingResetOverRide, setLoadingResetOverRide] = useState(false);
 
     const fetchReport = () => {
@@ -35,7 +34,6 @@ const SignalList = () => {
         // fetchReport();
         const intervalObj = setInterval(() => {
             fetchReport();
-            setCurTime(new Date());
         }, 1000)
 
         return () => {
@@ -50,7 +48,10 @@ const SignalList = () => {
             <thead className='table-dark'>
             <tr>
                 <td>Signal Id</td>
-                <td>Location</td>
+                <td style={{cursor: 'pointer'}} onClick={() => history.push('/map')}>
+                    <span>Location </span>
+                    <span className='text-danger'>*</span>
+                </td>
                 <td>Lat</td>
                 <td>Lng</td>
                 <td>Timer</td>
