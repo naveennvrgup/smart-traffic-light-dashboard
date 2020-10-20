@@ -17,6 +17,7 @@ const SignalList = () => {
         })
     }
 
+    // fetch the reporting data + resetInterval every second
     useEffect(() => {
         // fetchReport();
         const intervalObj = setInterval(() => {
@@ -29,8 +30,7 @@ const SignalList = () => {
         }
     });
 
-    const signalsDiv = signals.map((signal, i) => <Signal key={i} currTime={currTime} resetInterval={resetInterval}
-                                                          signal={signal}/>)
+    const signalsDiv = signals.map((signal, i) => <Signal key={i} {...{signal, resetInterval}} />)
 
     return <Fragment>
         <table className='table table-bordered'>
