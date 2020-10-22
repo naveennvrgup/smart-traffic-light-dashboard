@@ -58,7 +58,7 @@ const SignalList = ({history}) => {
                 <td>Control List</td>
                 <td>No. Lights</td>
                 <td>Light Id</td>
-                <td>Direction</td>
+                <td>Bearing</td>
                 <td style={{cursor: 'pointer'}} onClick={revokeOverRide}>
                     <span>Mode </span>
                     {loadingResetOverRide ?
@@ -66,6 +66,7 @@ const SignalList = ({history}) => {
                         <span className="text-danger">*</span>}
                 </td>
                 <td>Color</td>
+                <td>Heartbeat</td>
             </tr>
             </thead>
             <tbody>

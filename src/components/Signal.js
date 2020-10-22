@@ -44,6 +44,14 @@ const Signal = ({signal, resetInterval}) => {
         <td className={light.signalState === 'Red' ? 'bgred' : 'bggreen'}>
             {light.signalState}
         </td>
+        <td>{new Date(light.heartbeat).toLocaleTimeString('en-IN', {
+            year: 'numeric',
+            month: 'numeric',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric'
+        })}</td>
     </tr>)
 
 }
